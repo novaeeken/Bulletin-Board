@@ -1,0 +1,23 @@
+/** {
+	margin: 0;
+	padding: 0;
+}*/
+
+.container {
+	/*border: 2px solid grey;*/
+	background-color: ##f0f0f1;
+}
+
+.card-columns {
+	margin-top: 70px;
+	column-gap: 12px;
+}
+
+.navbar {
+	border-radius: 0px;
+}
+
+.btn {
+	background-color: #99CCFF;
+	border-color: #6699CC;
+}

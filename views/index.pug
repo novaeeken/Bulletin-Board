@@ -1,0 +1,102 @@
+extends layout
+
+block content
+		div.container
+			div.row
+				div.col-xs-12.col-sm-12.col-md-12.col-lg-12.col-xl-12
+					br
+					div.card-columns
+						div.card
+							img.card-img-top.img-fluid(src="images/example.jpg", alt="Card image cap")
+							div.card-body
+								h4.card-title Card title that wraps to a new line
+								p.card-text
+									| This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+						div.card.text-right.p-3
+							blockquote.blockquote.mb-0.card-body
+								p
+									| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+								footer.blockquote-footer
+									small.text-muted
+										| Someone famous in 
+										cite(title="Source Title") Source Title
+						div.card
+							img.card-img-top(src="images/example2.jpg", alt="Card image cap")
+							div.card-body
+								h4.card-title Card title
+								p.card-text This card has supporting text below as a natural lead-in to additional content.
+								p.card-text
+									small.text-muted Posted 01-11-2017
+						div.card.bg-warning.text-white.text-right.mb-3
+							blockquote.blockquote.mb-0
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+								footer.blockquote-footer
+									small
+										| Someone famous in 
+										cite(title="Source Title") Source Title
+						div.card.text-center
+							div.card-body
+								h4.card-title Card title
+								p.card-text This card has supporting text below as a natural lead-in to additional content.
+								p.card-text
+									small.text-muted Posted 31-10-2017
+						div.card
+							img.card-img(src="images/example3.jpg", alt="Card image")
+						div.card.p-3.text-right
+							blockquote.blockquote.mb-0
+								p
+									| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+								footer.blockquote-footer
+									small.text-muted
+										| Someone famous in 
+										cite(title="Source Title") Source Title
+						div.card
+							div.card-body
+								h4.card-title Card title
+								p.card-text
+									| This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+								p.card-text
+									small.text-muted 28-10-2017
+						div.card
+							img.card-img-top.img-fluid(src="images/example.jpg", alt="Card image cap")
+							div.card-body
+								h4.card-title Card title that wraps to a new line
+								p.card-text
+									| This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+						div.card.text-right.p-3
+							blockquote.blockquote.mb-0.card-body
+								p
+									| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+								footer.blockquote-footer
+									small.text-muted
+										| Someone famous in 
+										cite(title="Source Title") Source Title
+						div.card
+							img.card-img-top(src="images/example2.jpg", alt="Card image cap")
+							div.card-body
+								h4.card-title Card title
+								p.card-text This card has supporting text below as a natural lead-in to additional content.
+								p.card-text
+									small.text-muted Posted 01-11-2017
+		
+		div#contribute.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+			div.modal-dialog(role="document")
+				div.modal-content
+					div.modal-header
+						button(type="button" class="close" data-dismiss="modal" aria-label="close")
+							span(aria-hidden="true") &times;
+						h4#exampleModalLabel.modal-title Awesome Title It Is :D
+					div.modal-body
+						| The ass degenerates into the sufferer. The staircase remainders the pin. An integral arithmetic achieves the cough beside its second decline. The afraid scheme belts the gasp. An ill paragraph errs. The drying defect stops near the coal.
+					div.modal-footer
+						button.btn.btn-secondary(type="button" data-dismiss="modal") Close the modal
+						button.btn.btn-primary(type="button") Extra button
+
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+		script.
+			$(document).ready(function(){
+				$('#myModal').on('shown.bs.modal', function () {
+					$('#myInput').trigger('focus')
+				});
+			});
+			
