@@ -6,12 +6,26 @@ block content
 				div.col-xs-12.col-sm-12.col-md-12.col-lg-12.col-xl-12
 					br
 					div.card-columns
-						div.card
+						
+						//- FOR LOOP HERE
+						each message in contributions
+							div.card
+								div.card-body
+									h4.card-title #{message.title}
+									p.card-text #{message.body}
+									p.card-text
+										small.text-muted Posted #{message.date}
+
+						//- card with image
+						div.card.bg-light
 							img.card-img-top.img-fluid(src="images/example.jpg", alt="Card image cap")
 							div.card-body
-								h4.card-title Card title that wraps to a new line
+								h4.card-title HERE: 
 								p.card-text
 									| This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+								p.card-text
+									small.text-muted Posted 01-11-2017
+
 						div.card.text-right.p-3
 							blockquote.blockquote.mb-0.card-body
 								p
@@ -20,6 +34,7 @@ block content
 									small.text-muted
 										| Someone famous in 
 										cite(title="Source Title") Source Title
+						
 						div.card
 							img.card-img-top(src="images/example2.jpg", alt="Card image cap")
 							div.card-body
@@ -27,6 +42,7 @@ block content
 								p.card-text This card has supporting text below as a natural lead-in to additional content.
 								p.card-text
 									small.text-muted Posted 01-11-2017
+						
 						div.card.bg-warning.text-white.text-right.mb-3
 							blockquote.blockquote.mb-0
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
@@ -34,12 +50,14 @@ block content
 									small
 										| Someone famous in 
 										cite(title="Source Title") Source Title
-						div.card.text-center
+						//- simple card 
+						div.card.bg-info.text-white
 							div.card-body
 								h4.card-title Card title
 								p.card-text This card has supporting text below as a natural lead-in to additional content.
 								p.card-text
 									small.text-muted Posted 31-10-2017
+						
 						div.card
 							img.card-img(src="images/example3.jpg", alt="Card image")
 						div.card.p-3.text-right
@@ -79,24 +97,40 @@ block content
 								p.card-text
 									small.text-muted Posted 01-11-2017
 		
+		//- OVERLAY MODAL
 		div#contribute.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
 			div.modal-dialog(role="document")
 				div.modal-content
 					div.modal-header
+						h4.modal-title Make a contribution
 						button(type="button" class="close" data-dismiss="modal" aria-label="close")
 							span(aria-hidden="true") &times;
-						h4#exampleModalLabel.modal-title Awesome Title It Is :D
 					div.modal-body
-						| The ass degenerates into the sufferer. The staircase remainders the pin. An integral arithmetic achieves the cough beside its second decline. The afraid scheme belts the gasp. An ill paragraph errs. The drying defect stops near the coal.
-					div.modal-footer
-						button.btn.btn-secondary(type="button" data-dismiss="modal") Close the modal
-						button.btn.btn-primary(type="button") Extra button
+						form(action="/contribute" method="post" id="contribution-form")
+							div.form-group
+								label(for="form-title") Title
+								input#form-title.form-control(type="title" name="title" placeholder="What is your contribution about?")
+							div.form-group
+								label(for="message") Text
+								textarea#message.form-control(rows="5" name="body" placeholder="Share your thoughts!")
+							div.form-group
+								label(for="add-image") Upgrade your contribution with an image
+								select#add-image.form-control
+									option nah, thanks.
+									option image 1
+									option image 2
+									option image 3
+									option image 4
+							div.buttons.form-group
+								button.btn.btn-primary.orange(type="submit") Submit
+								button.btn.btn-secondary(type="button" data-dismiss="modal") Cancel
+					//- div.modal-footer
+						p Yo thanks.
+						
 
+		//- END OF PAGE
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
 		script.
 			$(document).ready(function(){
-				$('#myModal').on('shown.bs.modal', function () {
-					$('#myInput').trigger('focus')
-				});
-			});
+			});	
 			
