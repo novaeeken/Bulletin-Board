@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const { Client } = require('pg')
 const client = new Client({
-	database: 'bulletinboard',
+	database: 'testdatabase',
 	host: 'localhost',
 	user: process.env.POSTGRES_USER
 })
