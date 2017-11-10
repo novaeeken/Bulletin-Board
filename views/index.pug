@@ -7,130 +7,74 @@ block content
 					br
 					div.card-columns
 						
-						//- FOR LOOP HERE
-						each message in contributions
-							div.card
-								div.card-body
-									h4.card-title #{message.title}
-									p.card-text #{message.body}
-									p.card-text
-										small.text-muted Posted #{message.date}
-
-						//- card with image
-						div.card.bg-light
-							img.card-img-top.img-fluid(src="images/example.jpg", alt="Card image cap")
-							div.card-body
-								h4.card-title HERE: 
-								p.card-text
-									| This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-								p.card-text
-									small.text-muted Posted 01-11-2017
-
-						div.card.text-right.p-3
-							blockquote.blockquote.mb-0.card-body
-								p
-									| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-								footer.blockquote-footer
-									small.text-muted
-										| Someone famous in 
-										cite(title="Source Title") Source Title
-						
-						div.card
-							img.card-img-top(src="images/example2.jpg", alt="Card image cap")
-							div.card-body
-								h4.card-title Card title
-								p.card-text This card has supporting text below as a natural lead-in to additional content.
-								p.card-text
-									small.text-muted Posted 01-11-2017
-						
-						div.card.bg-warning.text-white.text-right.mb-3
-							blockquote.blockquote.mb-0
-								p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-								footer.blockquote-footer
-									small
-										| Someone famous in 
-										cite(title="Source Title") Source Title
-						//- simple card 
-						div.card.bg-info.text-white
-							div.card-body
-								h4.card-title Card title
-								p.card-text This card has supporting text below as a natural lead-in to additional content.
-								p.card-text
-									small.text-muted Posted 31-10-2017
-						
-						div.card
-							img.card-img(src="images/example3.jpg", alt="Card image")
+						//- BLOCK QUOTE
 						div.card.p-3.text-right
 							blockquote.blockquote.mb-0
 								p
-									| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+									| You don't have to be perfect to inspire others. Let others be inspired by your imperfection.
 								footer.blockquote-footer
 									small.text-muted
-										| Someone famous in 
-										cite(title="Source Title") Source Title
+										| Unknown
+						
+						//- POPULATE PAGE WITH DB CONTENT
+						each message in contributions
+
+							if message.image === "nah, thanks."
+								div.card(id="message" + message.id)
+									//- create flag container to indicate where edit form needs to append
+									div.flag(id="flag" + message.id)
+										div.card-body(id="body" + message.id)
+											h4.card-title(id="title" + message.id) #{message.title}
+											p.card-text(id="body" + message.id) #{message.body}
+											p.card-text
+												small#left.text-muted Posted #{message.date}
+
+												//- edit button
+												button.btn.modifyers.remove(type="button" data-toggle="modal" data-target="#delete" aria-hidden="true" id=message.id)
+													span.glyphicon.glyphicon-remove(id="remove" + message.id)
+												
+												//- highlight button
+												button.btn.modifyers.highlight(type="button" id=message.id)
+													span.glyphicon.glyphicon-star(id="star" + message.id)
+												
+												//- remove button
+												button.btn.modifyers.edit(type="button" id=message.id)
+													span.glyphicon.glyphicon-pencil(id="edit" + message.id)
+							
+							else 
+								div.card(id="message" + message.id)
+									//- create flag container to indicate where edit form needs to append
+									div.flag(id="flag" + message.id)
+										img.card-img-top.img-fluid(src="images/" +message.image)
+										div.card-body(id="body" + message.id)
+											h4.card-title(id="title" + message.id) #{message.title}
+											p.card-text(id="body" + message.id) #{message.body}
+											p.card-text
+												small#left.text-muted Posted #{message.date}
+												
+												//- edit button
+												button.btn.modifyers.remove(type="button" data-toggle="modal" data-target="#delete" aria-hidden="true" id=message.id)
+													span.glyphicon.glyphicon-remove(id="remove" + message.id)
+												
+												//- highlight button
+												button.btn.modifyers.highlight(type="button" id=message.id)
+													span.glyphicon.glyphicon-star(id="star" + message.id)
+												
+												//- remove button
+												button.btn.modifyers.edit(type="button" id=message.id)
+													span.glyphicon.glyphicon-pencil(id="edit" + message.id)
+						
+						//- BLOCK QUOTE
 						div.card
-							div.card-body
-								h4.card-title Card title
-								p.card-text
-									| This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
-								p.card-text
-									small.text-muted 28-10-2017
-						div.card
-							img.card-img-top.img-fluid(src="images/example.jpg", alt="Card image cap")
-							div.card-body
-								h4.card-title Card title that wraps to a new line
-								p.card-text
-									| This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+							img.card-img(src="images/road.jpg")
 						div.card.text-right.p-3
 							blockquote.blockquote.mb-0.card-body
 								p
-									| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+									| The women whom I love and admire for their strength and grace did not get that way because shit worked out. They got that way because shit went wrong, and they handled it. They handled it in a thousand different ways on a thousand different days, but they handled it. Those women are my superheroes. 
 								footer.blockquote-footer
 									small.text-muted
-										| Someone famous in 
-										cite(title="Source Title") Source Title
-						div.card
-							img.card-img-top(src="images/example2.jpg", alt="Card image cap")
-							div.card-body
-								h4.card-title Card title
-								p.card-text This card has supporting text below as a natural lead-in to additional content.
-								p.card-text
-									small.text-muted Posted 01-11-2017
-		
-		//- OVERLAY MODAL
-		div#contribute.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-			div.modal-dialog(role="document")
-				div.modal-content
-					div.modal-header
-						h4.modal-title Make a contribution
-						button(type="button" class="close" data-dismiss="modal" aria-label="close")
-							span(aria-hidden="true") &times;
-					div.modal-body
-						form(action="/contribute" method="post" id="contribution-form")
-							div.form-group
-								label(for="form-title") Title
-								input#form-title.form-control(type="title" name="title" placeholder="What is your contribution about?")
-							div.form-group
-								label(for="message") Text
-								textarea#message.form-control(rows="5" name="body" placeholder="Share your thoughts!")
-							div.form-group
-								label(for="add-image") Upgrade your contribution with an image
-								select#add-image.form-control
-									option nah, thanks.
-									option image 1
-									option image 2
-									option image 3
-									option image 4
-							div.buttons.form-group
-								button.btn.btn-primary.orange(type="submit") Submit
-								button.btn.btn-secondary(type="button" data-dismiss="modal") Cancel
-					//- div.modal-footer
-						p Yo thanks.
-						
+										| Elizabeth Gilbert
 
-		//- END OF PAGE
-		script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
-		script.
-			$(document).ready(function(){
-			});	
-			
+		include modal_contribute.pug
+		include modal_delete.pug
+						

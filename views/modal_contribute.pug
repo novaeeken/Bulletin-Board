@@ -1,0 +1,29 @@
+
+//- OVERLAY MODAL - FORM TO CONTRIBUTE
+div#contribute.modal.fade(tabindex="-1" role="dialog" aria-hidden="true")
+	div.modal-dialog(role="document")
+		div.modal-content
+			div.modal-header
+				h4.modal-title Make a contribution
+				button(type="button" class="close" data-dismiss="modal" aria-label="close")
+					span(aria-hidden="true") &times;
+			div.modal-body
+				form(action="/contribute" method="post" id="contribution-form")
+					div.form-group
+						label(for="form-title") Title
+						input#form-title.form-control(type="title" name="title" placeholder="What is your contribution about?")
+					div.form-group
+						label(for="message") Text
+						textarea#message.form-control(rows="5" name="body" placeholder="Share your thoughts!")
+					div.form-group
+						label(for="add-image") Upgrade your contribution with an image
+						select#add-image.form-control(name="image")
+							option nah, thanks.
+							option Walking
+							option Forest
+							option Leaves
+							option Shoes
+							option Road
+					div.buttons.form-group
+						button.btn.btn-primary.orange(type="submit") Submit
+						button.btn.btn-secondary(type="button" data-dismiss="modal") Cancel

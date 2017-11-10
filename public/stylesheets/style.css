@@ -1,38 +1,105 @@
-/** {
-	margin: 0;
-	padding: 0;
-}*/
+
+/*    <<<<    GENERAL PROPS     >>>>    */
+
+body {
+  background: url('/images/background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+/*removing the blue outline on buttons when clicked */
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.card-columns {
+  margin-top: 70px;
+  column-gap: 12px;
+}
+
+
+/*    <<<<    NORMAL CARD PROPS     >>>>    */
+.card  {
+  background: rgba(255, 255, 255, .9);
+}
 
 .container {
 	/*border: 2px solid grey;*/
 	background-color: ##f0f0f1;
 }
 
-.card-columns {
-	margin-top: 70px;
-	column-gap: 12px;
+.modifyers {
+  float: right;
+  background-color: transparent;
+  border: none;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-bottom: 2px;
 }
+
+.card .glyphicon {
+  color: #6b7a82;
+}
+
+.card .glyphicon:hover {
+  color: #1AA6B7;
+}
+
+
+/*     <<<<<      HIGHLIGHT CARD PROPS      >>>>>        */
+
+.card.highlight {
+  background-color: #fd8a25;
+  border-color: #ed7309;
+  color: white;
+}
+
+.card.highlight .glyphicon {
+  color: white;
+}
+
+
+/*      <<<<<     NAVBAR PROPS      >>>>>      */
 
 .navbar {
 	border-radius: 0px;
+  background-color: #022D41;
+  border-color: #002638;
+}
+
+#navbar-button {
+  background-color: #fd8a25;
+  color: white;
+}
+
+#navbar-button:hover {
+  background-color: #ed7309;
+}
+
+.navbar .navbar-brand {
+  color: #DAECF3;
 }
 
 .buttons {
   text-align: right;
 }
+
+
+/*      <<<<<       MODAL PROPS       >>>>>      */
   
 .btn-primary {
   margin-right: 10px;
 }
 
-/*when modal shows, make background darker*/
-.modal-backdrop
+.modal-backdrop /*when modal shows, make background darker*/
 {
     opacity:0.5 !important;
 }
 
-/*TO VERTICALLY CENTER MODAL FORM*/
-
+/*vertically aligning the modal */
 .modal {
   text-align: center;
   padding: 0!important;
@@ -50,4 +117,33 @@
   display: inline-block;
   text-align: left;
   vertical-align: middle;
+}
+
+/*      <<<<<       LOADER PROPS       >>>>>      */
+
+#loader-wrapper {
+  text-align: center;
+  padding-top: 129px;
+  padding-bottom: 129px;
+}
+
+#loader {
+  display: inline-block;
+  border: 8px solid #DAECF3;
+  border-radius: 50%;
+  border-top: 8px solid #1AA6B7;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

@@ -20,14 +20,14 @@ html(lang="en")
             div.container-fluid
                 div.container
                     div.navbar-header
-                        a.navbar-brand(href="#") Bulletin Board
-                            //- img(alt="Brand" src="#")
+                        a.navbar-brand(href="/") Bulletin Board
                     form.navbar-form.navbar-right
-                        button.btn.btn-info(type="button" data-toggle="modal" data-target="#contribute" aria-hidden="true") Make contribution
+                        button.btn(id="navbar-button" type="button" data-toggle="modal" data-target="#contribute" aria-hidden="true") Make contribution
 
         block content
 
-        //- LINK TO BOOTSTRAP + JQUERY LIBRARY
+        //- LINK TO BOOTSTRAP + JQUERY + JS LIBRARIES AND SCRIPTS
         script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
         script(src='https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js')
+        script(src="javascripts/main.js")
