@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 function populate() {
 	client.query(`create table messages (id serial primary key, title text, body text, image text, date timestamp default now())`); 
 	
+	// making sure table exist before populating it
 	setTimeout(function() {
 		client.query(`insert into messages (title, body,image) values ('Food for thought', 'Life isn t about waiting for the storm to pass, it s about learning how to dance in the rain', 'walking.jpg')`);
 		client.query(`insert into messages (title, body,image) values ('What is autumn really?', 'Autumn is one of the four seasons on Earth and is the transition from Summer into Winter. In North America, Autumn is also known as the fall, in which both Thanksgiving and Halloween are celebrated. One of the main features of Autumn is the shedding of leaves from deciduous trees.', 'forest.jpg')`);
