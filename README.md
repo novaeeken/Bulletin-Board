@@ -2,7 +2,7 @@
 
 This project is a result of applying postgres and AJAX in a Node.js Web Application. The application populates the page with messages stored on a database and enables the user to add new contributions- as well as highlighting, removing or editing existing ones.
 
-![banner](https://github.com/novaeeken/Bulletin-Board/blob/master/public/images/screenshot.png?raw=true)
+![banner](https://github.com/novaeeken/Bulletin-Board/blob/master/public/images/Screenshot.png?raw=true)
 
 > Visualization of the board that displays all current messages in the database
 
