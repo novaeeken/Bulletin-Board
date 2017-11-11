@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const { Client } = require('pg')
 const client = new Client({
-	database: 'testdatabase',
+	database: 'bulletinboard',
 	host: 'localhost',
 	user: process.env.POSTGRES_USER
 })
@@ -22,23 +22,23 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 // POPULATE DATABASE
-function populate() {
-	client.query(`create table messages (id serial primary key, title text, body text, image text, date timestamp default now())`); 
+// function populate() {
+// 	client.query(`create table messages (id serial primary key, title text, body text, image text, date timestamp default now())`); 
 	
-	// making sure table exist before populating it
-	setTimeout(function() {
-		client.query(`insert into messages (title, body,image) values ('Food for thought', 'Life isn t about waiting for the storm to pass, it s about learning how to dance in the rain', 'walking.jpg')`);
-		client.query(`insert into messages (title, body,image) values ('What is autumn really?', 'Autumn is one of the four seasons on Earth and is the transition from Summer into Winter. In North America, Autumn is also known as the fall, in which both Thanksgiving and Halloween are celebrated. One of the main features of Autumn is the shedding of leaves from deciduous trees.', 'forest.jpg')`);
-		client.query(`insert into messages (title, body,image) values ('How to create folderstructure', 'Simply use the line sudo npm install express-generator -g', 'nah, thanks.')`);
-		client.query(`insert into messages (title, body,image) values ('Node.js', 'Node.js is an asynchronous event driven JavaScript runtime, designed to build scalable network applications.', 'nah, thanks.')`);
-		client.query(`insert into messages (title, body,image) values ('The Husbands Secret - Liane Moriarty', 'Mother of three and wife of John-Paul, Cecilia discovers an old envelope in the attic. Written in her husband s hand, it says: to be opened only in the event of my death. Curious, she opens it - and time stops. John-Pauls letter confesses to a terrible mistake which, if revealed, would wreck their family as well as the lives of others. Cecilia wants to do the right thing, but right for who?', 'nah, thanks.')`);
-		client.query(`insert into messages (title, body,image) values ('Pug is awesome! ', 'Pug is a template engine for Node.js. A template engine allows us to inject data and then produce HTML. So, in short: At run time, Pug (and other template engines) replace variables in our file with actual values, and then send the resulting HTML string to the client.', 'nah, thanks.')`);
-		client.query(`insert into messages (title, body,image) values ('When life is hard', 'I hate when I think I m buying organic vegetables and when I come home I discover they re just regular donuts.', 'nah, thanks.')`);
-		client.query(`insert into messages (title, body,image) values ('Pretty', 'Autumn is a very beautiful season with the leaves changing colour and the nights being cooler.', 'leaves.jpg')`);
-	}, 1000);
-};
+// 	// making sure table exist before populating it
+// 	setTimeout(function() {
+// 		client.query(`insert into messages (title, body,image) values ('Food for thought', 'Life isn t about waiting for the storm to pass, it s about learning how to dance in the rain', 'walking.jpg')`);
+// 		client.query(`insert into messages (title, body,image) values ('What is autumn really?', 'Autumn is one of the four seasons on Earth and is the transition from Summer into Winter. In North America, Autumn is also known as the fall, in which both Thanksgiving and Halloween are celebrated. One of the main features of Autumn is the shedding of leaves from deciduous trees.', 'forest.jpg')`);
+// 		client.query(`insert into messages (title, body,image) values ('How to create folderstructure', 'Simply use the line sudo npm install express-generator -g', 'nah, thanks.')`);
+// 		client.query(`insert into messages (title, body,image) values ('Node.js', 'Node.js is an asynchronous event driven JavaScript runtime, designed to build scalable network applications.', 'nah, thanks.')`);
+// 		client.query(`insert into messages (title, body,image) values ('The Husbands Secret - Liane Moriarty', 'Mother of three and wife of John-Paul, Cecilia discovers an old envelope in the attic. Written in her husband s hand, it says: to be opened only in the event of my death. Curious, she opens it - and time stops. John-Pauls letter confesses to a terrible mistake which, if revealed, would wreck their family as well as the lives of others. Cecilia wants to do the right thing, but right for who?', 'nah, thanks.')`);
+// 		client.query(`insert into messages (title, body,image) values ('Pug is awesome! ', 'Pug is a template engine for Node.js. A template engine allows us to inject data and then produce HTML. So, in short: At run time, Pug (and other template engines) replace variables in our file with actual values, and then send the resulting HTML string to the client.', 'nah, thanks.')`);
+// 		client.query(`insert into messages (title, body,image) values ('When life is hard', 'I hate when I think I m buying organic vegetables and when I come home I discover they re just regular donuts.', 'nah, thanks.')`);
+// 		client.query(`insert into messages (title, body,image) values ('Pretty', 'Autumn is a very beautiful season with the leaves changing colour and the nights being cooler.', 'leaves.jpg')`);
+// 	}, 1000);
+// };
 
-populate(); 
+// populate(); 
 
 
 // RESTFUL ROUTING
