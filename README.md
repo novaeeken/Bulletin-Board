@@ -1,4 +1,4 @@
-# Databases and SQL
+ # Databases and SQL
 
 This project is a result of applying postgres and AJAX in a Node.js Web Application. The application populates the page with messages stored on a database and enables the user to add new contributions- as well as highlighting, removing or editing existing ones.
 
