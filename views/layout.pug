@@ -5,16 +5,16 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         meta(http-equiv="x-ua-compatible", content="ie=edge")
         title Bulletin Board
-        //- Bootstrap CDN
-        link(rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css")
-        //- Bootstrap custom theme
-        link(rel="stylesheet" href="https://bootswatch.com/3/united/bootstrap.min.css")
-        //- Own CSS file
+        //- Bootstrap stylesheet
+        link(rel="stylesheet" href="stylesheets/bootstrap.css")
+        //- Bootswatch
+        link(rel="stylesheet" href="stylesheets/bootswatch.css")
+        //- Custom CSS
         link(rel="stylesheet" href="stylesheets/style.css")
         link(rel="icon" type="image/png" href="images/logo.png" sizes="32x32")
  
     body
-
+        
         //-MAIN NAVIGATION 
         nav.navbar.navbar-default.navbar-fixed-top
             div.container-fluid
@@ -29,5 +29,5 @@ html(lang="en")
         //- LINK TO BOOTSTRAP + JQUERY + JS LIBRARIES AND SCRIPTS
         script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
-        script(src='https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js')
+        script(src='javascripts/bootstrap.js')
         script(src="javascripts/main.js")

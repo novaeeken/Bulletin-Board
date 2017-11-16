@@ -7,73 +7,46 @@ block content
 					br
 					div.card-columns
 						
-						//- BLOCK QUOTE
+						//- FIXED BLOCK QUOTE
 						div.card.p-3.text-right
 							blockquote.blockquote.mb-0
-								p
-									| You don't have to be perfect to inspire others. Let others be inspired by your imperfection.
+								p You don't have to be perfect to inspire others. Let others be inspired by your imperfection.
 								footer.blockquote-footer
-									small.text-muted
-										| Unknown
+									small.text-muted Unknown
 						
 						//- POPULATE PAGE WITH DB CONTENT
 						each message in contributions
-
-							if message.image === "nah, thanks."
-								div.card(id="message" + message.id)
-									//- create flag container to indicate where edit form needs to append
-									div.flag(id="flag" + message.id)
-										div.card-body(id="body" + message.id)
-											h4.card-title(id="title" + message.id) #{message.title}
-											p.card-text(id="body" + message.id) #{message.body}
-											p.card-text
-												small#left.text-muted Posted #{message.date}
-
-												//- edit button
-												button.btn.modifyers.remove(type="button" data-toggle="modal" data-target="#delete" aria-hidden="true" id=message.id)
-													span.glyphicon.glyphicon-remove(id="remove" + message.id)
-												
-												//- highlight button
-												button.btn.modifyers.highlight(type="button" id=message.id)
-													span.glyphicon.glyphicon-star(id="star" + message.id)
-												
-												//- remove button
-												button.btn.modifyers.edit(type="button" id=message.id)
-													span.glyphicon.glyphicon-pencil(id="edit" + message.id)
-							
-							else 
-								div.card(id="message" + message.id)
-									//- create flag container to indicate where edit form needs to append
-									div.flag(id="flag" + message.id)
+							div.card(id="message" + message.id)
+								//- create flag container to indicate where edit form needs to append
+								div.flag(id="flag" + message.id)
+									if message.image !== "nah, thanks."
 										img.card-img-top.img-fluid(src="images/" +message.image)
-										div.card-body(id="body" + message.id)
-											h4.card-title(id="title" + message.id) #{message.title}
-											p.card-text(id="body" + message.id) #{message.body}
-											p.card-text
-												small#left.text-muted Posted #{message.date}
-												
-												//- edit button
-												button.btn.modifyers.remove(type="button" data-toggle="modal" data-target="#delete" aria-hidden="true" id=message.id)
-													span.glyphicon.glyphicon-remove(id="remove" + message.id)
-												
-												//- highlight button
-												button.btn.modifyers.highlight(type="button" id=message.id)
-													span.glyphicon.glyphicon-star(id="star" + message.id)
-												
-												//- remove button
-												button.btn.modifyers.edit(type="button" id=message.id)
-													span.glyphicon.glyphicon-pencil(id="edit" + message.id)
+									div.card-body(id="body" + message.id)
+										h4.card-title(id="title" + message.id) #{message.title}
+										p.card-text(id="body" + message.id) #{message.body}
+										p.card-text
+											small#left.text-muted Posted #{message.updatedAt}
+
+											//- edit button
+											button.btn.modifyers.remove(type="button" data-toggle="modal" data-target="#delete" aria-hidden="true" id=message.id)
+												span.glyphicon.glyphicon-remove(id="remove" + message.id)
+											
+											//- highlight button
+											button.btn.modifyers.highlight(type="button" id=message.id)
+												span.glyphicon.glyphicon-star(id="star" + message.id)
+											
+											//- remove button
+											button.btn.modifyers.edit(type="button" id=message.id)
+												span.glyphicon.glyphicon-pencil(id="edit" + message.id)
 						
-						//- BLOCK QUOTE
+						//- FIXED BLOCK QUOTE
 						div.card
 							img.card-img(src="images/road.jpg")
 						div.card.text-right.p-3
 							blockquote.blockquote.mb-0.card-body
-								p
-									| The women whom I love and admire for their strength and grace did not get that way because shit worked out. They got that way because shit went wrong, and they handled it. They handled it in a thousand different ways on a thousand different days, but they handled it. Those women are my superheroes. 
+								p The women whom I love and admire for their strength and grace did not get that way because shit worked out. They got that way because shit went wrong, and they handled it. They handled it in a thousand different ways on a thousand different days, but they handled it. Those women are my superheroes. 
 								footer.blockquote-footer
-									small.text-muted
-										| Elizabeth Gilbert
+									small.text-muted Elizabeth Gilbert
 
 		include modal_contribute.pug
 		include modal_delete.pug
